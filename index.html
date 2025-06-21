@@ -3,16 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search V2 - CATSMOKER</title>
-    <link rel="search" type="application/opensearchdescription+xml" href="search.xml" title="Search V2">
-    
-    <link rel="icon" href="assets/ico/favicon.ico" type="image/x-icon">
-    
+    <title>MetaBang - CATSMOKER</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="search.xml" title="MetaBang">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
     
-    <link rel="stylesheet" href="assets/css/home.css"> 
-    <link rel="stylesheet" href="assets/css/search.css">
+    <link rel="stylesheet" href="style.css">
     
     <script src="https://kit.fontawesome.com/2538377e9f.js" crossorigin="anonymous" defer></script>
 </head>
@@ -47,7 +43,6 @@
                 <div class="setting-item search-engine-pref">
                     <h4><i class="fas fa-compass"></i> Search Engine</h4>
                     <div id="search-engine-selector" class="engine-selector-grid">
-                        <!-- Search engine options will be populated here by JS -->
                     </div>
                 </div>
 
@@ -59,7 +54,6 @@
                     </div>
                     <button class="add-bang-btn" onclick="saveCustomBang()">Add Bang</button>
                     <div id="custom-bang-list">
-                        <!-- Custom bangs will be listed here by JS -->
                     </div>
                 </div>
             </div>
@@ -88,6 +82,6 @@
         <p>© 2024-2025 CATSMOKER. All rights reserved.</p>
     </footer>
 
-    <script src="assets/js/search.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
