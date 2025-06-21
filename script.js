@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Search Engines Configuration ---
     const searchEngines = [
         {
             id: 'google',
@@ -45,9 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
             settingsLogoUrl: 'https://cdn-images-1.medium.com/v2/resize:fill:1600:480/gravity:fp:0.5:0.4/1*E0iLZoYH7JqSYRWuBmYlQA.png'
         },
     ];
-    let currentSearchEngineId = 'google'; // Default
+    let currentSearchEngineId = 'google';
 
-    // --- Enhanced !bang database ---
     let bangs = {
         "!yt": "https://www.youtube.com/results?search_query=%s",
         "!w": "https://en.wikipedia.org/wiki/Special:Search/%s",
@@ -73,10 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainPageLogo = document.getElementById('main-page-logo');
     const searchEngineSelectorDiv = document.getElementById('search-engine-selector');
 
-    // --- Search Engine Selection ---
     function renderSearchEngineSelector() {
         if (!searchEngineSelectorDiv) return;
-        searchEngineSelectorDiv.innerHTML = ''; // Clear existing options
+        searchEngineSelectorDiv.innerHTML = '';
 
         searchEngines.forEach(engine => {
             const optionDiv = document.createElement('div');
@@ -97,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             label.htmlFor = `engine_radio_${engine.id}`;
             
             const logoImg = document.createElement('img');
-            logoImg.src = engine.settingsLogoUrl || engine.logoUrl; // Fallback to main logo if settingsLogo is not defined
+            logoImg.src = engine.settingsLogoUrl || engine.logoUrl;
             logoImg.alt = `${engine.name} logo`;
             
             const nameSpan = document.createElement('span');
@@ -122,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
             mainPageLogo.src = selectedEngine.logoUrl;
             mainPageLogo.alt = `${selectedEngine.name} Search`;
         }
-        // Visually update selected state in the selector
         document.querySelectorAll('.engine-option').forEach(opt => {
             opt.classList.toggle('selected', opt.dataset.engineId === currentSearchEngineId);
             const radio = opt.querySelector('input[type="radio"]');
@@ -136,15 +132,11 @@ document.addEventListener('DOMContentLoaded', () => {
         updateMainLogoAndDefault();
     }
 
-
-    // --- Load saved settings ---
     function loadSettings() {
-        // Tracker stripping
         if (stripTrackersCheckbox) {
             stripTrackersCheckbox.checked = localStorage.getItem('search-strip-trackers') === 'true';
         }
 
-        // Search Engine Preference
         const savedEngineId = localStorage.getItem('search-engine-preference');
         if (savedEngineId && searchEngines.some(se => se.id === savedEngineId)) {
             currentSearchEngineId = savedEngineId;
@@ -152,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateMainLogoAndDefault(); 
         renderSearchEngineSelector(); 
 
-        // Load custom !bangs from localStorage
         for (let i = 0; i < localStorage.length; i++) {
             const key = localStorage.key(i);
             if (key.startsWith('bang:')) {
@@ -166,14 +157,12 @@ document.addEventListener('DOMContentLoaded', () => {
         renderCustomBangs();
     }
 
-    // --- Tracker Stripping Setting ---
     if (stripTrackersCheckbox) {
         stripTrackersCheckbox.addEventListener('change', (e) => {
             localStorage.setItem('search-strip-trackers', e.target.checked);
         });
     }
 
-    // --- Settings Panel Toggle ---
     window.toggleSettings = function() {
         if (settingsPanel) {
             const isHidden = settingsPanel.style.display === 'none' || settingsPanel.style.display === '';
@@ -181,7 +170,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Custom Bang Management ---
     function renderCustomBangs() {
         if (!customBangListDiv) return;
         customBangListDiv.innerHTML = '';
@@ -239,7 +227,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Search Functions ---
     function stripTrackers(url) {
         try {
             let parsedUrl = new URL(url);
@@ -285,11 +272,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     window.imFeelingLucky = function() {
-        // Navigate to the specified static URL
         window.location.href = 'https://catsmoker.github.io';
     }
-
-    // --- Event Listeners ---
+    
     if (searchInput) {
         searchInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
@@ -298,10 +283,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Initialization ---
     loadSettings(); 
 
-    // --- Handle URL parameters (e.g., if used as browser search engine) ---
     function handleUrlParams() {
         const urlParams = new URLSearchParams(window.location.search);
         const queryParam = urlParams.get('q');
