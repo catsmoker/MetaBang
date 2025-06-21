@@ -1,0 +1,5 @@
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>Search</ShortName>
+  <Description>Search using Google V2</Description>
+  <Url type="text/html" method="get" template="https://catsmoker.vercel.app/web/search.html?q={searchTerms}"/>
+</OpenSearchDescription>

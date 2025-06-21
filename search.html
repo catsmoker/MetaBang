@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search V2 - CATSMOKER</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="search.xml" title="Search V2">
+    
+    <link rel="icon" href="assets/ico/favicon.ico" type="image/x-icon">
+    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
+    
+    <link rel="stylesheet" href="assets/css/home.css"> 
+    <link rel="stylesheet" href="assets/css/search.css">
+    
+    <script src="https://kit.fontawesome.com/2538377e9f.js" crossorigin="anonymous" defer></script>
+</head>
+<body>
+
+    <div class="search-page-container">
+        <div id="main-page-logo-container" class="logo">
+          <img id="main-page-logo" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Search Engine">
+        </div>
+        
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-box" id="search" placeholder="Search or use !bang (e.g., !yt cats)" autofocus>
+                <i class="fas fa-microphone voice-icon" title="Voice search (not implemented)"></i>
+            </div>
+            
+            <div class="buttons">
+                <button class="search-btn" onclick="performSearch()">Search</button>
+                <button class="lucky-btn" onclick="imFeelingLucky()">I'm Feeling Lucky</button>
+                <button class="settings-btn" onclick="toggleSettings()"><i class="fas fa-cog"></i> Settings</button>
+            </div>
+            
+            <div id="settings-panel" class="settings-panel-card" style="display: none;">
+                <h3><i class="fas fa-wrench"></i> Settings</h3>
+                 <div class="setting-item">
+                     <label>
+                         <input type="checkbox" id="strip-trackers"> Remove tracking parameters (utm_, etc.)
+                     </label>
+                 </div>
+
+                <div class="setting-item search-engine-pref">
+                    <h4><i class="fas fa-compass"></i> Search Engine</h4>
+                    <div id="search-engine-selector" class="engine-selector-grid">
+                        <!-- Search engine options will be populated here by JS -->
+                    </div>
+                </div>
+
+                <div class="setting-item custom-bangs">
+                    <h4><i class="fas fa-bolt"></i> Custom !bangs</h4>
+                    <div class="bang-inputs">
+                        <input type="text" id="custom-bang" placeholder="!mybang">
+                        <input type="text" id="custom-url" placeholder="https://example.com/?q=%s">
+                    </div>
+                    <button class="add-bang-btn" onclick="saveCustomBang()">Add Bang</button>
+                    <div id="custom-bang-list">
+                        <!-- Custom bangs will be listed here by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+  <div class="ad-section">
+    <p class="ad-message">Support CATSMOKER by viewing a few ads. Your support helps keep the content free and the fridge full! 🍕</p>
+    <div class="ad-container">
+<script type="text/javascript">
+	atOptions = {
+		'key' : '63fa2911679096f507a57fc2ae1aa25b',
+		'format' : 'iframe',
+		'height' : 90,
+		'width' : 728,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/63fa2911679096f507a57fc2ae1aa25b/invoke.js"></script>
+      <a href="https://beta.publishers.adsterratech.com/referral/EjjBnqjx77" rel="nofollow noopener">
+        <img alt="banner" src="https://landings-cdn.adsterratech.com/referralBanners/png/728%20x%2090%20px.png" width="728" height="90" loading="lazy" class="img-fluid rounded-3" />
+      </a>
+    </div>
+  </div>
+
+    <footer class="global-footer-enhanced">
+        <p>© 2024-2025 CATSMOKER. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/search.js" defer></script>
+</body>
+</html>
